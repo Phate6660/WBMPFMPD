@@ -110,6 +110,17 @@ input {
   color: white;
 }
 
+.button7 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid black;
+}
+
+.button7:hover {
+  background-color: #323234;
+  color: white;
+}
+
 .lyrics-container {
     width: auto;
     height: 525px;
@@ -125,11 +136,11 @@ input {
 <div style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
 <p>
 <form action="" method="post">
-	<input type="submit" style="background-image:url(cover.png); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px;" value=" " name="button7" id="myImage"/>
+	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px;" value=" " name="button8" id="myImage"/>
 </form>
  Click the album art to view and refresh the music status and album art.
 </p>
-<?php if (isset($_POST['button7'])) { $output = shell_exec('mpc'); echo "<pre>$output</pre>"; } ?>
+<?php if (isset($_POST['button8'])) { $output = shell_exec('mpc'); echo "<pre>$output</pre>"; } ?>
 
 <?php if (isset($_POST['button'])) { exec('mpc toggle'); } ?>
 <form class="buttons" action="" method="post">
@@ -180,6 +191,23 @@ input {
 		$album = $_REQUEST['album'];
         shell_exec("mpc clear");
         shell_exec("mpc find album \"$album\" | mpc add");
+        shell_exec("mpc play");
+    }
+    ?>
+</div>
+
+<form class="buttons" action="" method="post">
+    <a class="button button7" id="displayText3" href="javascript:toggle3();">Play Playlist</a>
+</form>
+<div id="toggleText3" style="display: none">
+	<form method="post">
+	<input class="form-textbox" type='text' name="playlist" value="Please input what playlist you'd like to listen to." /> <br/>
+	</form>
+	<?php
+    if(isset($_REQUEST['playlist'])){
+		$playlist = $_REQUEST['playlist'];
+        shell_exec("mpc clear");
+        shell_exec("mpc load \"$playlist\"");
         shell_exec("mpc play");
     }
     ?>
@@ -236,6 +264,19 @@ function toggle2() {
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
 		text.innerHTML = "Play Album";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "Dismiss Input";
+	}
+} 
+
+function toggle3() {
+	var ele = document.getElementById("toggleText3");
+	var text = document.getElementById("displayText3");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "Play Playlist";
   	}
 	else {
 		ele.style.display = "block";
