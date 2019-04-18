@@ -8,6 +8,10 @@ For the lyrics to work currently, you have to have the lyrics in a folder called
 
 Also, sorry for my terrible looking script. Just started out with PHP in this project for the first time.
 
+TODO: Update the screenshots to show how the layout looks.
+
+By the way, if anyone has suggestions for this little project, please feel free to suggest away. I will most likely implement it.
+
 ### Screenshots
 
 ![Overview](/Screenshots/Overview.png?raw=true "Overview")
