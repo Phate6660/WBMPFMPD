@@ -123,7 +123,7 @@ input {
 
 .lyrics-container {
     width: auto;
-    height: 525px;
+    height: 489px;
     overflow: scroll;
     text-align:center;
 }
