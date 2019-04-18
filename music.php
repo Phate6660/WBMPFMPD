@@ -28,11 +28,11 @@ input {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 8px 16px;
+  padding: 4px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -64,7 +64,7 @@ input {
 .button3 {
   background-color: white; 
   color: black; 
-  border: 2px solid #f44336;
+  border: 2px solid #008CBA;
 }
 
 .button3:hover {
@@ -75,7 +75,7 @@ input {
 .button4 {
   background-color: white; 
   color: black; 
-  border: 2px solid magenta;
+  border: 2px solid #008CBA;
 }
 
 .button4:hover {
@@ -86,7 +86,7 @@ input {
 .button5 {
   background-color: white; 
   color: black; 
-  border: 2px solid orange;
+  border: 2px solid yellow;
 }
 
 .button5:hover {
@@ -108,7 +108,7 @@ input {
 .button7 {
   background-color: white; 
   color: black; 
-  border: 2px solid black;
+  border: 2px solid yellow;
 }
 
 .button7:hover {
@@ -116,9 +116,42 @@ input {
   color: white;
 }
 
+.button8 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid red;
+}
+
+.button8:hover {
+  background-color: #323234;
+  color: white;
+}
+
+.button9 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid red;
+}
+
+.button9:hover {
+  background-color: #323234;
+  color: white;
+}
+
+.button10 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid red;
+}
+
+.button10:hover {
+  background-color: #323234;
+  color: white;
+}
+
 .lyrics-container {
     width: auto;
-    height: 489px;
+    height: 450px;
     overflow: scroll;
     text-align:center;
 }
@@ -126,17 +159,100 @@ input {
 .form-textbox {
 	width: 325px !important;
 }
+
+.black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+.white_content {
+  text-align: center;
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 12px;
+  border: 12px solid #4CAF50;
+  background-color: black;
+  z-index: 1002;
+  overflow: auto;
+}
+
+.controls { 
+    height: 35px; 
+    position: fixed; 
+    bottom:0%;
+    width:100%; 
+    right: 0%;
+    left: 0%;
+    background-color: #393838; 
+    opacity: 1;
+    border-style: solid; 
+    border-width: thin; 
+    border-color: #FFFFFF; 
+    width: auto;
+}
 </style>
 
 <div style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
 <p>
 <form action="" method="post">
-	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px;" value=" " name="button8" id="myImage"/>
+	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
 </form>
  Click the album art to view and refresh the music status and album art.
 </p>
-<?php if (isset($_POST['button8'])) { $output = shell_exec('mpc'); echo "<pre>$output</pre>"; } ?>
+<div>
+<a>Created by: valley</a> <br/>
+<a>With help from: /r/PHPhelp and Stack Overflow.</a>
+</div>
+<?php if (isset($_POST['button11'])) { $output = shell_exec('mpc'); echo "<pre>$output</pre>"; } ?>
+<br/>
+<div id="light" class="white_content">
+	<?php shell_exec('mpc list Artist > artists.txt'); $file = "artists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+</div>
+<div id="fade" class="black_overlay"></div>
+<div id="light2" class="white_content">
+	<?php shell_exec('mpc list Album > albums.txt'); $file = "albums.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a>
+</div>
+<div id="fade2" class="black_overlay"></div>
+<div id="light3" class="white_content">
+	<?php shell_exec('mpc lsplaylists > playlists.txt'); $file = "playlists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light3').style.display='none';document.getElementById('fade3').style.display='none'">Close</a>
+</div>
+<div id="fade3" class="black_overlay"></div>
+</div>
+</div>
 
+<h3 style="text-align:center">LYRICS</h3>
+<div class="lyrics-container" name="lyrics">
+<?php 
+$artist = shell_exec('mpc -f %artist% | head -n1');
+$artist = substr($artist, 0, -1);
+$title = shell_exec('mpc -f %title% | head -n1');
+$title = substr($title, 0, -1);
+$title = str_replace("?", "", $title);
+$title = str_replace("/", "", $title);
+$file = "./lyrics/$artist - $title.txt";
+$f = fopen($file, "r") or exit("| Unable to open file!");
+while(!feof($f))
+{
+  echo fgets($f)."<br />";
+}
+fclose($f);
+?>
+</div>
+
+<div class="controls">
 <?php if (isset($_POST['button'])) { exec('mpc toggle'); } ?>
 <form class="buttons" action="" method="post">
     <button class="button button1" type="submit" name="button">Play/Pause Music</button>
@@ -208,31 +324,18 @@ input {
     ?>
 </div>
 
-<br/>
-<a>Created by: valley</a> <br/>
-<a>With help from: /r/PHPhelp and Stack Overflow.</a>
-<br/>
-<br/>
-</div>
+<form class="buttons" action="" method="post">
+    <a class="button button8" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">List Available Artists</a>
+</form>
 
-<h3 style="text-align:center">LYRICS</h3>
-<div class="lyrics-container" name="lyrics">
-<?php 
-$artist = shell_exec('mpc -f %artist% | head -n1');
-$artist = substr($artist, 0, -1);
-$title = shell_exec('mpc -f %title% | head -n1');
-$title = substr($title, 0, -1);
-$title = str_replace("?", "", $title);
-$title = str_replace("/", "", $title);
-$file = "./lyrics/$artist - $title.txt";
-$f = fopen($file, "r") or exit("| Unable to open file!");
-while(!feof($f))
-{
-  echo fgets($f)."<br />";
-}
-fclose($f);
-?>
-</div>
+<form class="buttons" action="" method="post">
+    <a class="button button9" href="javascript:void(0)" onclick="document.getElementById('light2').style.display='block';document.getElementById('fade2').style.display='block'">List Available Albums</a>
+</form>
+
+<form class="buttons" action="" method="post">
+    <a class="button button10" href="javascript:void(0)" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade3').style.display='block'">List Available Playlists</a>
+</form>
+
 
 <script>
 setInterval(function() {
