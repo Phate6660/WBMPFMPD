@@ -252,6 +252,48 @@ fclose($f);
 ?>
 </div>
 
+<div id="toggleText" style="display: none">
+	<form method="post">
+	<input class="form-textbox cleardefault" type='text' name="artist" value="Please input what artist you'd like to listen to." /> <br/>
+	</form>
+	<?php
+    if(isset($_REQUEST['artist'])){
+		$artist = $_REQUEST['artist'];
+        shell_exec("mpc clear");
+        shell_exec("mpc find artist \"$artist\" | mpc add");
+        shell_exec("mpc play");
+    }
+    ?>
+</div>
+
+<div id="toggleText2" style="display: none">
+	<form method="post">
+	<input class="form-textbox cleardefault" type='text' name="album" value="Please input what album you'd like to listen to." /> <br/>
+	</form>
+	<?php
+    if(isset($_REQUEST['album'])){
+		$album = $_REQUEST['album'];
+        shell_exec("mpc clear");
+        shell_exec("mpc find album \"$album\" | mpc add");
+        shell_exec("mpc play");
+    }
+    ?>
+</div>
+
+<div id="toggleText3" style="display: none">
+	<form method="post">
+	<input class="form-textbox cleardefault" type='text' name="playlist" value="Please input what playlist you'd like to listen to." /> <br/>
+	</form>
+	<?php
+    if(isset($_REQUEST['playlist'])){
+		$playlist = $_REQUEST['playlist'];
+        shell_exec("mpc clear");
+        shell_exec("mpc load \"$playlist\"");
+        shell_exec("mpc play");
+    }
+    ?>
+</div>
+
 <div class="controls">
 <?php if (isset($_POST['button'])) { exec('mpc toggle'); } ?>
 <form class="buttons" action="" method="post">
@@ -273,56 +315,18 @@ fclose($f);
     <button class="button button4" type="submit" name="button4">Next Song</button>
 </form>
 
+
 <form class="buttons" action="" method="post">
     <a class="button button5" id="displayText" href="javascript:toggle();">Play Artist</a>
 </form>
-<div id="toggleText" style="display: none">
-	<form method="post">
-	<input class="form-textbox cleardefault" type='text' name="artist" value="Please input what artist you'd like to listen to." /> <br/>
-	</form>
-	<?php
-    if(isset($_REQUEST['artist'])){
-		$artist = $_REQUEST['artist'];
-        shell_exec("mpc clear");
-        shell_exec("mpc find artist \"$artist\" | mpc add");
-        shell_exec("mpc play");
-    }
-    ?>
-</div>
 
 <form class="buttons" action="" method="post">
     <a class="button button6" id="displayText2" href="javascript:toggle2();">Play Album</a>
 </form>
-<div id="toggleText2" style="display: none">
-	<form method="post">
-	<input class="form-textbox cleardefault" type='text' name="album" value="Please input what album you'd like to listen to." /> <br/>
-	</form>
-	<?php
-    if(isset($_REQUEST['album'])){
-		$album = $_REQUEST['album'];
-        shell_exec("mpc clear");
-        shell_exec("mpc find album \"$album\" | mpc add");
-        shell_exec("mpc play");
-    }
-    ?>
-</div>
 
 <form class="buttons" action="" method="post">
     <a class="button button7" id="displayText3" href="javascript:toggle3();">Play Playlist</a>
 </form>
-<div id="toggleText3" style="display: none">
-	<form method="post">
-	<input class="form-textbox cleardefault" type='text' name="playlist" value="Please input what playlist you'd like to listen to." /> <br/>
-	</form>
-	<?php
-    if(isset($_REQUEST['playlist'])){
-		$playlist = $_REQUEST['playlist'];
-        shell_exec("mpc clear");
-        shell_exec("mpc load \"$playlist\"");
-        shell_exec("mpc play");
-    }
-    ?>
-</div>
 
 <form class="buttons" action="" method="post">
     <a class="button button8" href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">List Available Artists</a>
