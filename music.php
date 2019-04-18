@@ -200,6 +200,7 @@ $artist = substr($artist, 0, -1);
 $title = shell_exec('mpc -f %title% | head -n1');
 $title = substr($title, 0, -1);
 $title = str_replace("?", "", $title);
+$title = str_replace("/", "", $title);
 $file = "./lyrics/$artist - $title.txt";
 $f = fopen($file, "r") or exit("| Unable to open file!");
 while(!feof($f))
