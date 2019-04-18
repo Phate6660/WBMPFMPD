@@ -1,11 +1,6 @@
-<?php
-$page = $_SERVER['PHP_SELF'];
-$sec = "30";
-?>
 <head>
   <title>Web-Based Music Player for mpd</title>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
   <link rel='shortcut icon' type='image/x-icon' href='favicon.png' />
 </head>
 
