@@ -10,6 +10,16 @@ Also, sorry for my terrible looking script. Just started out with PHP in this pr
 
 By the way, if anyone has suggestions for this little project, please feel free to suggest away. I will most likely implement it.
 
+### Requirements
+1. A functioning mpd server.
+2. `mpc` - A command line client for mpd.
+3. `ncmpcpp` - Another command line client for mpd. Working on removing this requirement so that this won't be needed in the future.
+
+### Install
+Copy "favicon.png" and "music.php" to the root folder of your server.
+
+To access, go to "http(s)://server.address/music.php".
+
 ### Screenshots
 
 **Overview**
