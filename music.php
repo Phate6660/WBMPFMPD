@@ -214,13 +214,38 @@ input {
 <form action="" method="post">
 	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
 </form>
- <span style="float: left">Click the album art to view and refresh the music status and album art.</span>
- <span style="float: right; margin-right:15px">
+<span style="float: left">
+	 Click the album art to view and refresh the music status and album art.
+	 <br/>
+	 <?php 
+	 $state = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Paused');
+	 $state2 = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Playing');
+	 $progress = shell_exec('mpc | grep "\[" | cut -c 18-29 | sed \'s/ *//g\'| sed \'s/(//g\'');
+	 $total = shell_exec('mpc ls "$(ncmpcpp --quiet --current-song "%D")" | sed \'s@.*/@@\' | sed "s/[^0-9]//g" | sed -r \'/^\s*$/d\' | sort -r | head -n1 | cut -c 1-2');
+	 $track = shell_exec('mpc -f %track% | head -n1');
+	 $playlist = shell_exec('mpc | grep "\[" | cut -c 12-18');
+	 $date = shell_exec('mpc -f "%date%" | head -n1');
+	 $genre = shell_exec('mpc -f "%genre%" | head -n1 | cut -f1 -d";"');
+	 $song = shell_exec('mpc -f "%title%" | head -n1');
+	 $album = shell_exec('mpc -f "%album%" | head -n1');
+	 $artist = shell_exec('mpc -f "%artist%" | head -n1');
+	 $output = "♫ Now $state$state2 ♫ <br />" . PHP_EOL .
+			   "Progress: $progress <br />" . PHP_EOL .
+			   "Year: $date <br />" . PHP_EOL .
+			   "Genre: $genre <br />" . PHP_EOL .
+			   "Song: $song <br />" . PHP_EOL .
+			   "Album: $album <br />" . PHP_EOL .
+			   "Artist: $artist <br />";
+	echo "$output";
+	?>
+	<br/>
+</span>
+<span style="float: right; margin-right:15px">
  <?php
  $ipout = shell_exec('curl --silent http://ipecho.net/plain');
  echo "IP (public): \"$ipout\"";
  ?>
- </span>
+</span>
 </p>
 <p>
 <br/>
@@ -232,10 +257,19 @@ input {
 </span>
 </p>
 <div>
-<a>Created by: valley</a> <br/>
-<a>With help from: /r/PHPhelp and Stack Overflow.</a>
+<br/>
+<br/>
+<br/>
+<br/>
+<span style="float: right; margin-right:15px">
+Created by: valley
+</span>
+<br/>
+<span style="float: right; margin-right:15px">
+With help from: /r/PHPhelp and Stack Overflow
+</span>
 </div>
-<?php if (isset($_POST['button11'])) { $output = shell_exec('mpc'); echo "<pre>$output</pre>"; } ?>
+<br/>
 <br/>
 <div id="light" class="white_content">
 	<?php shell_exec('mpc list Artist > artists.txt'); $file = "artists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
@@ -249,7 +283,6 @@ input {
 	<?php shell_exec('mpc lsplaylists > playlists.txt'); $file = "playlists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light3').style.display='none';document.getElementById('fade3').style.display='none'">Close</a>
 </div>
 <div id="fade3" class="black_overlay"></div>
-</div>
 </div>
 
 <h3 style="text-align:center">LYRICS</h3>
