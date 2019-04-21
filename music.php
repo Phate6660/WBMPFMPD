@@ -203,6 +203,10 @@ input {
     border-color: #FFFFFF; 
     width: auto;
 }
+
+.ip {
+	text-align: right;
+}
 </style>
 
 <div style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
@@ -210,7 +214,22 @@ input {
 <form action="" method="post">
 	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
 </form>
- Click the album art to view and refresh the music status and album art.
+ <span style="float: left">Click the album art to view and refresh the music status and album art.</span>
+ <span style="float: right; margin-right:15px">
+ <?php
+ $ipout = shell_exec('curl --silent http://ipecho.net/plain');
+ echo "IP (public): \"$ipout\"";
+ ?>
+ </span>
+</p>
+<p>
+<br/>
+<span style="float: right; margin-right:15px">
+	 <?php
+	 $ipin = $_SERVER['REMOTE_ADDR'];
+	 echo "IP (local): \"$ipin\"";
+	 ?>
+</span>
 </p>
 <div>
 <a>Created by: valley</a> <br/>
