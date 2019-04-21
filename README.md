@@ -18,8 +18,6 @@ By the way, if anyone has suggestions for this little project, please feel free 
 
 **Overview**
 ![Overview](/Screenshots/Overview.png?raw=true "Overview")
-**Music Status**
-![Music Status](/Screenshots/Music%20Status.png?raw=true "Music Status")
 **Play Artist**
 ![Play Artist](/Screenshots/Play%20Artist.png?raw=true "Play Artist")
 **Play Album**
