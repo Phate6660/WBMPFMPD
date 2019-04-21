@@ -12,6 +12,8 @@ Also, sorry for my terrible looking script. Just started out with PHP in this pr
 
 By the way, if anyone has suggestions for this little project, please feel free to suggest away. I will most likely implement it.
 
+//TODO: Update the screenshots.
+
 ### Screenshots
 
 **Overview**
