@@ -215,7 +215,7 @@ input {
 	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
 </form>
 <span style="float: left">
-	 Click the album art to view and refresh the music status and album art.
+	 Click the album art to refresh the music status, album art, and lyrics.
 	 <br/>
 	 <?php 
 	 $state = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Paused');
