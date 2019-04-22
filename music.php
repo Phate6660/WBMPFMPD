@@ -221,9 +221,6 @@ input {
 	 $state = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Paused');
 	 $state2 = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Playing');
 	 $progress = shell_exec('mpc | grep "\[" | cut -c 18-29 | sed \'s/ *//g\'| sed \'s/(//g\'');
-	 $total = shell_exec('mpc ls "$(ncmpcpp --quiet --current-song "%D")" | sed \'s@.*/@@\' | sed "s/[^0-9]//g" | sed -r \'/^\s*$/d\' | sort -r | head -n1 | cut -c 1-2');
-	 $track = shell_exec('mpc -f %track% | head -n1');
-	 $playlist = shell_exec('mpc | grep "\[" | cut -c 12-18');
 	 $date = shell_exec('mpc -f "%date%" | head -n1');
 	 $genre = shell_exec('mpc -f "%genre%" | head -n1 | cut -f1 -d";"');
 	 $song = shell_exec('mpc -f "%title%" | head -n1');
