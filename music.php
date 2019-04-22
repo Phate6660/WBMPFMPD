@@ -207,6 +207,10 @@ input {
 .ip {
 	text-align: right;
 }
+
+.links {
+	color:  #A0522D;
+}
 </style>
 
 <div style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
@@ -250,11 +254,11 @@ echo "&nbspTime and Date: $time&nbsp";
 <br/>
 <br/>
 <span style="float: right; margin-right:15px">
-Created by: valley
+Created by: valley <a class="links" href="https://www.reddit.com/user/Valley6660/" title="My Reddit account.">[1]</a> <a class="links" href="https://github.com/Phate6660/" title="My Github account.">[2]</a>
 </span>
 <br/>
 <span style="float: right; margin-right:15px">
-With help from: /r/PHPhelp and Stack Overflow
+With help from: <a class="links" href="https://www.reddit.com/r/PHPhelp">/r/PHPhelp</a> and <a class="links" href="https://www.stackoverflow.com">Stack Overflow</a>
 </span>
 </div>
 <br/>
