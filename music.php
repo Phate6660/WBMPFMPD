@@ -215,7 +215,7 @@ input {
 	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
 </form>
 <span style="float: left">
-	 Click the album art to refresh the music status, album art, and lyrics.
+	 <a style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">&nbspClick the album art to refresh the music status, album art, and lyrics.&nbsp</a>
 	 <br/>
 	 <?php 
 	 $state = shell_exec('mpc | cut -d "[" -f2 | cut -d "]" -f1 | tr [A-Z] [a-z] | sed -e \'s/^./\U&/g; s/ ./\U&/g\' | grep Paused');
@@ -235,23 +235,14 @@ input {
 			   "Artist: $artist <br />";
 	echo "$output";
 	?>
-	<br/>
 </span>
-<span style="float: right; margin-right:15px">
- <?php
- $ipout = shell_exec('curl --silent http://ipecho.net/plain');
- echo "IP (public): \"$ipout\"";
- ?>
+<span style="float: right; margin-right:15px; border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
+<?php 
+$time = shell_exec('date +"%I:%M %p | %A %d, %B of %Y"');
+echo "&nbspTime and Date: $time&nbsp";
+?>
 </span>
-</p>
-<p>
 <br/>
-<span style="float: right; margin-right:15px">
-	 <?php
-	 $ipin = $_SERVER['REMOTE_ADDR'];
-	 echo "IP (local): \"$ipin\"";
-	 ?>
-</span>
 </p>
 <div>
 <br/>
