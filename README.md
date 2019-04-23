@@ -17,7 +17,7 @@ By the way, if anyone has suggestions for this little project, please feel free 
 4. `ncmpcpp` - Another command line client for mpd. Working on removing this requirement so that this won't be needed in the future.
 
 ### Install
-Copy "favicon.png" and "music.php" to the root folder of your server.
+Copy "favicon.png", "music-style.css", and "music.php" to the root folder of your server.
 
 To access, go to "http(s)://server.address/music.php".
 
