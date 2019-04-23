@@ -8,7 +8,7 @@
 <div style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">
 <p>
 <form action="" method="post">
-	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button11" id="myImage"/>
+	<input type="submit" style="background-image:url(cover.png?<?php echo time() ?>); border:none; width:131px;height:131px; color:transparent; margin-right:15px; margin-left:15px; margin-bottom:15px;" value=" " name="button99" id="myImage"/>
 </form>
 <span style="float: left">
 	 <a style="border-style: solid; border-width: thin; border-color: #FFFFFF; width: auto;">&nbspClick the album art to refresh the music status, album art, and lyrics.&nbsp</a>
@@ -56,19 +56,47 @@ With help from: <a class="links" href="https://www.reddit.com/r/PHPhelp">/r/PHPh
 <br/>
 <br/>
 <div id="light" class="white_content">
-	<?php shell_exec('mpc list Artist > artists.txt'); $file = "artists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+	<?php shell_exec('mpc list Artist > artists.txt'); $file = "artists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay"></div>
 <div id="light2" class="white_content">
-	<?php shell_exec('mpc list Album > albums.txt'); $file = "albums.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a>
+	<?php shell_exec('mpc list Album > albums.txt'); $file = "albums.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light2').style.display='none';document.getElementById('fade2').style.display='none'">Close</a>
 </div>
 <div id="fade2" class="black_overlay"></div>
 <div id="light3" class="white_content">
-	<?php shell_exec('mpc lsplaylists > playlists.txt'); $file = "playlists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?><a href="javascript:void(0)" onclick="document.getElementById('light3').style.display='none';document.getElementById('fade3').style.display='none'">Close</a>
+	<?php shell_exec('mpc lsplaylists > playlists.txt'); $file = "playlists.txt"; $f = fopen($file, "r") or exit("| Unable to open file!"); while(!feof($f)) { echo fgets($f)."<br />"; } fclose($f); ?>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light3').style.display='none';document.getElementById('fade3').style.display='none'">Close</a>
 </div>
 <div id="fade3" class="black_overlay"></div>
 </div>
 
+// This is the start of the "Music Tree". It goes "Artists -> Albums -> Songs".
+<div id="light4" class="white_content">
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light5').style.display='block';document.getElementById('fade5').style.display='block'">Artist 1</a><br/>
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light7').style.display='block';document.getElementById('fade7').style.display='block'">Artist 2</a><br/>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light4').style.display='none';document.getElementById('fade4').style.display='none'">Close</a>
+</div>
+<div id="fade4" class="black_overlay"></div>
+<div id="light5" class="white_content">
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light6').style.display='block';document.getElementById('fade6').style.display='block'">Album 1 From Artist 1</a><br/>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light5').style.display='none';document.getElementById('fade5').style.display='none'">Close</a>
+</div>
+<div id="light7" class="white_content">
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light8').style.display='block';document.getElementById('fade8').style.display='block'">Album 1 From Artist 2</a><br/>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light7').style.display='none';document.getElementById('fade7').style.display='none'">Close</a>
+</div>
+<div id="light6" class="white_content">
+	<a onclick="XXX.paused?XXX.play():XXX.pause()"><audio id="XXX" src="/path/to/song1"></audio>Song 1 of Album 1 of Artist 1</a><br/>
+	<a onclick="XXY.paused?XXY.play():XXY.pause()"><audio id="XXY" src="/path/to/song2"></audio>Song 2 of Album 1 of Artist 1</a><br/>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light6').style.display='none';document.getElementById('fade6').style.display='none'">Close</a>
+</div>
+<div id="light8" class="white_content">
+	<a onclick="XXZ.paused?XXZ.play():XXZ.pause()"><audio id="XXZ" src="/path/to/song1"></audio>Song 1 of Album 1 of Artist 2</a><br/>
+	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light8').style.display='none';document.getElementById('fade8').style.display='none'">Close</a>
+</div>
+// This is the end of the "Music Tree".
 <h3 style="text-align:center">LYRICS</h3>
 <div class="lyrics-container" name="lyrics">
 <?php 
@@ -133,7 +161,11 @@ fclose($f);
 <div class="controls">
 <?php if (isset($_POST['button'])) { exec('mpc toggle'); } ?>
 <form class="buttons" action="" method="post">
-    <button class="button button1" type="submit" name="button">Play/Pause Music</button>
+    <button class="button button1" type="submit" name="button">Play/Pause Music (mpd)</button>
+</form>
+
+<form class="buttons" action="" method="post">
+    <a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light4').style.display='block';document.getElementById('fade4').style.display='block'">Play Song (Web Server)</a>
 </form>
 
 <?php if (isset($_POST['button2'])) { exec('mpc cdprev'); } ?>
@@ -176,8 +208,8 @@ fclose($f);
     <a class="button button10" href="javascript:void(0)" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade3').style.display='block'">List Available Playlists</a>
 </form>
 
-
 <script>
+// JS for show/hiding divs. START
 setInterval(function() {
     var myImageElement = document.getElementById('myImage');
     myImageElement.src = 'cover.png?rand=' + Math.random();
@@ -220,15 +252,10 @@ function toggle3() {
 		ele.style.display = "block";
 		text.innerHTML = "Dismiss Input";
 	}
-} 
+}
+// JS for show/hiding divs. END
 
-/*
- * Clear Default Text: functions for clearing and replacing default text in
- * <input> elements.
- *
- * by Ross Shannon, http://www.yourhtmlsource.com/
- */
-
+// JS for clearing default text in input boxes. START
 addEvent(window, 'load', init, false);
 
 function init() {
@@ -278,9 +305,6 @@ function addEvent(element, eventType, lamdaFunction, useCapture) {
     }
 }
 
-/* 
- * Kills an event's propagation and default action
- */
 function knackerEvent(eventObject) {
     if (eventObject && eventObject.stopPropagation) {
         eventObject.stopPropagation();
@@ -297,18 +321,10 @@ function knackerEvent(eventObject) {
     }
 }
 
-/* 
- * Safari doesn't support canceling events in the standard way, so we must
- * hard-code a return of false for it to work.
- */
 function cancelEventSafari() {
     return false;        
 }
 
-/* 
- * Cross-browser style extraction, from the JavaScript & DHTML Cookbook
- * <http://www.oreillynet.com/pub/a/javascript/excerpt/JSDHTMLCkbk_chap5/index5.html>
- */
 function getElementStyle(elementID, CssStyleProperty) {
     var element = document.getElementById(elementID);
     if (element.currentStyle) {
@@ -321,10 +337,6 @@ function getElementStyle(elementID, CssStyleProperty) {
     }
 }
 
-/* 
- * CamelCases CSS property names. Useful in conjunction with 'getElementStyle()'
- * From <http://dhtmlkitchen.com/learn/js/setstyle/index4.jsp>
- */
 function toCamelCase(CssProperty) {
     var stringArray = CssProperty.toLowerCase().split('-');
     if (stringArray.length == 1) {
@@ -340,9 +352,6 @@ function toCamelCase(CssProperty) {
     return ret;
 }
 
-/*
- * Disables all 'test' links, that point to the href '#', by Ross Shannon
- */
 function disableTestLinks() {
   var pageLinks = document.getElementsByTagName('a');
   for (var i=0; i<pageLinks.length; i++) {
@@ -352,9 +361,6 @@ function disableTestLinks() {
   }
 }
 
-/* 
- * Cookie functions
- */
 function createCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -383,4 +389,5 @@ function readCookie(name) {
 function eraseCookie(name) {
     createCookie(name, '', -1);
 }
+// JS for clearing default text in input boxes. END
 </script>
