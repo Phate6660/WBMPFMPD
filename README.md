@@ -41,5 +41,5 @@ To access, go to "http(s)://server.address/music.php".
 ![Play Music From Server - Artists](/Screenshots/Play%20From%20Server%20-%20Artists.png?raw=true "Play Music From Server - Artists")
 **Play From Server - Albums From Artist**
 ![Play From Server - Albums From Artist.png](/Screenshots/Play%20From%20Server%20-%20Albums%20From%20Artist.png?raw=true "Play From Server - Albums From Artist")
-**List Playlists**
+**Play From Server - Songs from Album from Artist**
 ![Play From Server - Songs from Album from Artist](/Screenshots/Play%20From%20Server%20-%20Songs%20from%20Album%20from%20Artist.png?raw=true "Play From Server - Songs from Album from Artist")
