@@ -71,33 +71,45 @@ With help from: <a class="links" href="https://www.reddit.com/r/PHPhelp">/r/PHPh
 </div>
 <div id="fade3" class="black_overlay"></div>
 </div>
-
-// This is the start of the "Music Tree". It goes "Artists -> Albums -> Songs".
 <div id="light4" class="white_content">
-	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light5').style.display='block';document.getElementById('fade5').style.display='block'">Artist 1</a><br/>
-	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light7').style.display='block';document.getElementById('fade7').style.display='block'">Artist 2</a><br/>
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light5').style.display='block';document.getElementById('fade5').style.display='block'">Hollywood Vampires</a><br/>
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light7').style.display='block';document.getElementById('fade7').style.display='block'">Type O Negative</a><br/>
 	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light4').style.display='none';document.getElementById('fade4').style.display='none'">Close</a>
 </div>
 <div id="fade4" class="black_overlay"></div>
 <div id="light5" class="white_content">
-	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light6').style.display='block';document.getElementById('fade6').style.display='block'">Album 1 From Artist 1</a><br/>
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light6').style.display='block';document.getElementById('fade6').style.display='block'">(2015) Hollywood Vampires</a><br/>
 	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light5').style.display='none';document.getElementById('fade5').style.display='none'">Close</a>
 </div>
 <div id="light7" class="white_content">
-	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light8').style.display='block';document.getElementById('fade8').style.display='block'">Album 1 From Artist 2</a><br/>
+	<a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light8').style.display='block';document.getElementById('fade8').style.display='block'">(2007) Dead Again</a><br/>
 	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light7').style.display='none';document.getElementById('fade7').style.display='none'">Close</a>
 </div>
 <div id="light6" class="white_content">
-	<a onclick="XXX.paused?XXX.play():XXX.pause()"><audio id="XXX" src="/path/to/song1"></audio>Song 1 of Album 1 of Artist 1</a><br/>
-	<a onclick="XXY.paused?XXY.play():XXY.pause()"><audio id="XXY" src="/path/to/song2"></audio>Song 2 of Album 1 of Artist 1</a><br/>
+	<h5>ALL SONGS ARE CLICK TO TOGGLE</h5>
+	<a onclick="tlv.paused?tlv.play():tlv.pause()"><audio id="tlv" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/01. The Last Vampire.flac"></audio>The Last Vampire</a><br/>
+	<a onclick="rtd.paused?rtd.play():rtd.pause()"><audio id="rtd" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/02. Raise The Dead.flac"></audio>Raise The Dead</a><br/>
+	<a onclick="mg.paused?mg.play():mg.pause()"><audio id="mg" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/03. My Generation.flac"></audio>My Generation</a><br/>
+	<a onclick="wll.paused?wll.play():wll.pause()"><audio id="wll" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/04. Whole Lotta Love.flac"></audio>Whole Lotta Love</a><br/>
+	<a onclick="igaloy.paused?igaloy.play():igaloy.pause()"><audio id="igaloy" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/05. I Got A Line On You.flac"></audio>I Got A Line On You</a><br/>
+	<a onclick="fto.paused?fto.play():fto.pause()"><audio id="fto" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/06. Five To One_Break On Through (To The Other Side).flac"></audio>Five To One / Break On Through (To The Other Side)</a><br/>
+	<a onclick="oj.paused?oj.play():oj.pause()"><audio id="oj" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/07. One_Jump Into The Fire.flac"></audio>One / Jump Into The Fire</a><br/>
+	<a onclick="cgi.paused?cgi.play():cgi.pause()"><audio id="cgi" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/08. Come And Get It.flac"></audio>Come And Get It</a><br/>
+	<a onclick="j.paused?j.play():j.pause()"><audio id="j" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/09. Jeepster.flac"></audio>Jeepster</a><br/>
+	<a onclick="ct.paused?ct.play():ct.pause()"><audio id="ct" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/10. Cold Turkey.flac"></audio>Cold Turkey</a><br/>
+	<a onclick="md.paused?md.play():md.pause()"><audio id="md" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/11. Manic Depression.flac"></audio>Manic Depression</a><br/>
+	<a onclick="ip.paused?ip.play():ip.pause()"><audio id="ip" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/12. Itchycoo Park.flac"></audio>Itchycoo Park</a><br/>
+	<a onclick="so.paused?so.play():so.pause()"><audio id="so" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/13. School's Out_Another Brick In The Wall.flac"></audio>School's Out / Another Brick In The Wall</a><br/>
+	<a onclick="mddf.paused?mddf.play():mddf.pause()"><audio id="mddf" src="./music/Hollywood Vampires/(2015) Hollywood Vampires/14. My Dead Drunk Friends.flac"></audio>My Dead Drunk Friends</a><br/>
 	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light6').style.display='none';document.getElementById('fade6').style.display='none'">Close</a>
 </div>
 <div id="light8" class="white_content">
-	<a onclick="XXZ.paused?XXZ.play():XXZ.pause()"><audio id="XXZ" src="/path/to/song1"></audio>Song 1 of Album 1 of Artist 2</a><br/>
+	<h5>ALL SONGS ARE CLICK TO TOGGLE</h5>
+	<a onclick="da.paused?da.play():da.pause()"><audio id="da" src="./music/Type O Negative/(2007) Dead Again/01. Dead Again.wav"></audio>Dead Again</a><br/>
+	<a onclick="tabm.paused?tabm.play():tabm.pause()"><audio id="tabm" src="./music/Type O Negative/(2007) Dead Again/02. Tripping a Blind Man.wav"></audio>Tripping a Blind Man</a><br/>
 	<a class="button button-link" href="javascript:void(0)" onclick="document.getElementById('light8').style.display='none';document.getElementById('fade8').style.display='none'">Close</a>
 </div>
-// This is the end of the "Music Tree".
-<h3 style="text-align:center">LYRICS</h3>
+<h4 style="text-align:center">LYRICS</h4>
 <div class="lyrics-container" name="lyrics">
 <?php 
 $artist = shell_exec('mpc -f %artist% | head -n1');
@@ -165,7 +177,7 @@ fclose($f);
 </form>
 
 <form class="buttons" action="" method="post">
-    <a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light4').style.display='block';document.getElementById('fade4').style.display='block'">Play Song (Web Server)</a>
+    <a class="button button11" href="javascript:void(0)" onclick="document.getElementById('light4').style.display='block';document.getElementById('fade4').style.display='block'">Play Music (Web Server)</a>
 </form>
 
 <?php if (isset($_POST['button2'])) { exec('mpc cdprev'); } ?>

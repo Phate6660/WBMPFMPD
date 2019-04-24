@@ -7,6 +7,7 @@ html, body{
   	-o-background-size: cover;
   	background-size: cover;
 	color: #FFFFFF;
+	scrollbar-width: none;
 }
 	
 input {
@@ -18,16 +19,15 @@ input {
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 2px 4px;
+  padding: 2px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 10px;
   margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
 }
@@ -155,7 +155,7 @@ input {
 
 .lyrics-container {
     width: auto;
-    height: 450px;
+    height: 470px;
     overflow: scroll;
     text-align:center;
 }
@@ -194,7 +194,7 @@ input {
 }
 
 .controls { 
-    height: 35px; 
+    height: 30px; 
     position: fixed; 
     bottom:0%;
     width:100%; 
